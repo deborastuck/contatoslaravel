@@ -7,22 +7,20 @@ use Illuminate\Foundation\Http\FormRequest;
 class ContatoValidarRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determina se usuário é autorizado a fazer a requisição.
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize(){
         return true;
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Regras de validação para requisição.
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules(){
         return [
             'nome' => 'required',
             'telefone' => 'numeric'

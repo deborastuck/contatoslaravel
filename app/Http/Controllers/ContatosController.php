@@ -8,14 +8,16 @@ use Agenda\Http\Requests\ContatoValidarRequest;
 
 class ContatosController extends Controller{
 
-   public function index(){
-       return view('index');
-   }
+    public function index(){
+        return view('index');
+    }
 
     public function lista($letra){
+        //exibe lista com Todos os contatos em ordem alfabética
         if($letra == '*'){
             $array_contatos = Contato::orderBy('nome')->get();
         }else{
+            //exibe lista com os contatos em ordem alfabética de acordo com a busca por inicial do nome
             $array_contatos = Contato::letraNome($letra);
         }
         return view('lista', [
@@ -23,13 +25,15 @@ class ContatosController extends Controller{
             'filtro' => $letra
         ]);
     }
-
+    
+    //exibe página de cadastro
     public function cadastro(){
         return view('cadastro');
     }
 
+    //persiste dados do contato no Banco de Dados
     public function enviar(ContatoValidarRequest $request, Contato $contato){
-	$contato->nome = $request->get('nome');
+        $contato->nome = $request->get('nome');
 	$contato->email = $request->get('email');
 	$contato->telefone = $request->get('telefone');
  

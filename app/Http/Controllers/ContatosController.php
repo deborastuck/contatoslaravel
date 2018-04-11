@@ -4,7 +4,7 @@ namespace Agenda\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Agenda\Contato;
-use Agenda\Http\Requests\ContatoValidarRequest;
+use \Agenda\Http\Requests\IValidarRequest;
 
 class ContatosController extends Controller{
 
@@ -32,7 +32,7 @@ class ContatosController extends Controller{
     }
 
     //persiste dados do contato no Banco de Dados
-    public function enviar(ContatoValidarRequest $request, Contato $contato){
+    public function enviar(IValidarRequest $request, Contato $contato){
         $contato->nome = $request->get('nome');
 	$contato->email = $request->get('email');
 	$contato->telefone = $request->get('telefone');

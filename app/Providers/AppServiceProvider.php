@@ -23,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(\Agenda\Http\Requests\IValidarRequest::class, \Agenda\Http\Requests\ContatoValidarRequest::class);
     }
 }
